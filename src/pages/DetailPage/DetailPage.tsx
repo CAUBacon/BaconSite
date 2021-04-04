@@ -418,6 +418,8 @@ function DetailPage({ match, history, location }: DetailPageProps) {
 
   const [checkReviewModalShow, setCheckReviewModalShow] = useState(false);
 
+  const [jsKey, setJsKey] = useState(`${process.env.REACT_APP_KAKAO_JAVASCRIPT_API_KEY}`);
+
   const [template, setTemplate] = useState({
     objectType: "feed",
     content: {
@@ -717,6 +719,9 @@ function DetailPage({ match, history, location }: DetailPageProps) {
   useEffect(() => {
     if (shop.data && shop.data.address) {
       console.log("여기는 출력 하는거니")
+      const jskeyvalue = `${process.env.REACT_APP_KAKAO_JAVASCRIPT_API_KEY}`
+      console.log(jskeyvalue)
+      setJsKey(jskeyvalue)
       console.log(shop.data)
       if (shop.data.latitude && shop.data.longitude) return;
       getLocation(shop.data.address);
@@ -891,25 +896,6 @@ function DetailPage({ match, history, location }: DetailPageProps) {
           <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
         </Helmet>
         <KakaoShareButton /> */}
-
-
-      {/* <KakaoLinkDefault
-          className="template"
-          template={template}
-          jsKey={"ba8a2ba784111293f60a62d5bd6ca2aa"}
-        >
-          <button>카카오링크 디폴트 템플릿</button>
-        </KakaoLinkDefault> */}
-
-
-
-        {/* <KakaoLinkScrap
-          className="scrap"
-          requestUrl={"https://developers.kakao.com"}
-          jsKey={"acd0352115cdbb3ea69988653c3be5f4"}
-        >
-          <button>카카오링크 스크랩</button>
-        </KakaoLinkScrap> */}
         
       <ShopActionContainer>
         {likeOffset === 0 ? (
@@ -944,7 +930,7 @@ function DetailPage({ match, history, location }: DetailPageProps) {
         <KakaoLinkDefault
           className="template"
           template={template}
-          jsKey={"acd0352115cdbb3ea69988653c3be5f4"}
+          jsKey={jsKey}
         >
         <ShopAction>
           <MdShare />
