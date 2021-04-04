@@ -15,8 +15,10 @@ function KakaoMap({ latitude, longitude }: KakaoMapProps) {
   useEffect(() => {
     const script = document.createElement('script');
     script.async = true;
-    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.REACT_APP_KAKAO_REST_API_KEY}&autoload=false`;
+    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.REACT_APP_KAKAO_JAVASCRIPT_API_KEY}&autoload=false`;
     document.head.appendChild(script);
+    console.log("api 주소 호출")
+    console.log(process.env.REACT_APP_KAKAO_REST_API_KEY)
 
     script.onload = () => {
       window.kakao.maps.load(() => {
