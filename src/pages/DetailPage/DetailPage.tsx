@@ -4,7 +4,7 @@ import Header from '../../components/layout/Header';
 import styled, { css } from 'styled-components';
 import { RouteComponentProps } from 'react-router-dom';
 import useDetail from '../../hooks/useDetail';
-import { MdFavorite, MdFavoriteBorder, MdAddAPhoto, MdEdit, MdInfoOutline, MdKeyboardArrowRight, MdRestaurantMenu } from 'react-icons/md';
+import { MdFavorite, MdFavoriteBorder, MdAddAPhoto, MdEdit, MdInfoOutline, MdKeyboardArrowRight, MdRestaurantMenu, MdShare } from 'react-icons/md';
 import BounceLoader from 'react-spinners/BounceLoader';
 import palette, { hexToRGB } from '../../styles/palette';
 import Flag from '../../components/common/Flag';
@@ -29,7 +29,6 @@ import { useScrollTop } from 'components/common/ScrollToTopController';
 import { Helmet } from 'react-helmet'
 import KakaoShareButton from './KakaoShareButton'
 import { KakaoLinkDefault, KakaoLinkScrap } from "react-kakao-link"
-
 
 
 const ShopTitle = styled.h1`
@@ -897,7 +896,7 @@ function DetailPage({ match, history, location }: DetailPageProps) {
       {/* <KakaoLinkDefault
           className="template"
           template={template}
-          jsKey={"acd0352115cdbb3ea69988653c3be5f4"}
+          jsKey={"ba8a2ba784111293f60a62d5bd6ca2aa"}
         >
           <button>카카오링크 디폴트 템플릿</button>
         </KakaoLinkDefault> */}
@@ -942,6 +941,16 @@ function DetailPage({ match, history, location }: DetailPageProps) {
           <MdEdit />
           <span>리뷰 작성</span>
         </ShopAction>
+        <KakaoLinkDefault
+          className="template"
+          template={template}
+          jsKey={"acd0352115cdbb3ea69988653c3be5f4"}
+        >
+        <ShopAction>
+          <MdShare />
+          <span>카카오톡 공유</span>
+        </ShopAction>
+        </KakaoLinkDefault>
       </ShopActionContainer>
       <Divider />
       <KakaoMapBlock>
