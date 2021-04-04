@@ -4,7 +4,7 @@ import Header from '../../components/layout/Header';
 import styled, { css } from 'styled-components';
 import { RouteComponentProps } from 'react-router-dom';
 import useDetail from '../../hooks/useDetail';
-import { MdFavorite, MdFavoriteBorder, MdAddAPhoto, MdEdit, MdInfoOutline, MdKeyboardArrowRight, MdRestaurantMenu } from 'react-icons/md';
+import { MdFavorite, MdFavoriteBorder, MdAddAPhoto, MdEdit, MdInfoOutline, MdKeyboardArrowRight, MdRestaurantMenu, MdShare } from 'react-icons/md';
 import BounceLoader from 'react-spinners/BounceLoader';
 import palette, { hexToRGB } from '../../styles/palette';
 import Flag from '../../components/common/Flag';
@@ -26,6 +26,10 @@ import imageCompression from 'browser-image-compression';
 import Cat500 from 'assets/Cat500.svg';
 import Cat404 from 'assets/Cat404.svg';
 import { useScrollTop } from 'components/common/ScrollToTopController';
+import { Helmet } from 'react-helmet'
+import KakaoShareButton from './KakaoShareButton'
+import { KakaoLinkDefault, KakaoLinkScrap } from "react-kakao-link"
+
 
 const ShopTitle = styled.h1`
   font-size: 31px;
@@ -37,6 +41,40 @@ const ShopTitle = styled.h1`
 interface ShopImageProps {
   imageLink: string;
   isImageNotExisted?: boolean;
+}
+
+interface TemplateProps {
+    objectType: string;
+    content: {
+        title: string;
+        description: string;
+        imageUrl: string;
+        link: {
+            mobileWebUrl: string;
+            webUrl: string;
+        };
+    };
+    social: {
+        likeCount: number;
+        // commentCount: number;
+        // sharedCount: number;
+    };
+    buttons: [
+      {
+        title: string,
+        link: {
+          mobileWebUrl: string,
+          webUrl: string,
+        },
+      },
+      {
+        title: String,
+        link: {
+          mobileWebUrl: string,
+          webUrl: string,
+        },
+      },
+    ],
 }
 
 const ShopImageContainer = styled.div`
@@ -380,8 +418,45 @@ function DetailPage({ match, history, location }: DetailPageProps) {
 
   const [checkReviewModalShow, setCheckReviewModalShow] = useState(false);
 
+  const [template, setTemplate] = useState({
+    objectType: "feed",
+    content: {
+      title: "",
+      description: "#케익 #딸기 #삼평동 #카페 #분위기 #소개팅",
+      imageUrl:
+        "http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
+      link: {
+        mobileWebUrl: "https://developers.kakao.com",
+        webUrl: "https://developers.kakao.com",
+      },
+    },
+    social: {
+      likeCount: 286,
+      // commentCount: 45,
+      // sharedCount: 845,
+    },
+    buttons: [
+      {
+        title: "웹으로 보기",
+        link: {
+          mobileWebUrl: "https://developers.kakao.com",
+          webUrl: "https://developers.kakao.com",
+        },
+      },
+      {
+        title: "앱으로 보기",
+        link: {
+          mobileWebUrl: "https://developers.kakao.com",
+          webUrl: "https://developers.kakao.com",
+        },
+      },
+    ],
+  });
+
   // const [imageSizeToBigShow, setImageSizeToBigShow] = useState(false);
   // const [imageCountToBigShow, setImageCountToBigShow] = useState(false);
+
+  
 
   const simpleDialogAlert = useCallback(
     (message: string) => {
@@ -402,16 +477,33 @@ function DetailPage({ match, history, location }: DetailPageProps) {
     setCheckReviewModalShow(true);
   }, [simpleDialogAlert, checkTodayReviewDispatch, setCheckReviewModalShow]);
 
+
   useEffect(() => {
-    if (!checkReviewLoading) return;
-    if (checkReview.loading) return;
-    console.log('check response', checkReview.data);
-    if (checkReview.data) {
-      history.push(`comment/${(match.params as any).shopId}`);
-    } else {
-      console.log('오늘 댓글 더 못달아요ㅎㅋ');
-    }
-    setCheckReviewLoading(false);
+    // const templateMaker = () => {
+      
+      
+  // }
+
+  // templateMaker();
+
+    const script = document.createElement('script')
+      script.src = 'https://developers.kakao.com/sdk/js/kakao.js'
+      script.async = true
+      document.body.appendChild(script)
+      if (!checkReviewLoading) return;
+      if (checkReview.loading) return;
+      console.log('check response', checkReview.data);
+      if (checkReview.data) {
+        history.push(`comment/${(match.params as any).shopId}`);
+      } else {
+        console.log('오늘 댓글 더 못달아요ㅎㅋ');
+      }
+      setCheckReviewLoading(false);
+      return () => {
+        document.body.removeChild(script)
+      }
+
+    
   }, [checkReview, history, match.params, checkReviewLoading]);
 
   const onImageUploadButtonClick = () => {
@@ -616,8 +708,16 @@ function DetailPage({ match, history, location }: DetailPageProps) {
     setLikeOffset(0);
   }, [onShopRequest, onReviewRequest]);
 
+  ///////
+  
+
+
+  //////
+
   useEffect(() => {
     if (shop.data && shop.data.address) {
+      console.log("여기는 출력 하는거니")
+      console.log(shop.data)
       if (shop.data.latitude && shop.data.longitude) return;
       getLocation(shop.data.address);
     }
@@ -644,6 +744,66 @@ function DetailPage({ match, history, location }: DetailPageProps) {
       setShopReportDone(true);
     }
   }, [shopReport.data]);
+
+  useEffect(() => {
+    if(shop.data){
+      console.log("여기!!")
+      console.log(shop.data)
+      console.log(shop.data.address.length)
+
+      let menus_list: string = ""
+
+      shop.data.menus.map((menu) => (
+        menus_list = menus_list + "#" + menu.title + " "
+      ))
+
+      let food_img: string = ""
+
+      shop.data.shopImage.map((image) => (
+        food_img = image.imageLink
+      ))
+      // `#${shop.data.menus[0].title} #${shop.data.menus[1].title} #${shop.data.menus[2].title}`
+      let template2 = {
+        objectType: "feed",
+        content: {
+          title: `${shop.data.name}`,
+          description: menus_list,
+          imageUrl:
+          // `${shop.data.shopImage[0].imageLink}`,
+          food_img,
+          // `https://d3s32mx82uelsl.cloudfront.net/images/05a4bb10-5e4d-490c-bdd0-d7a33994e8f916015397`,
+          link: {
+            mobileWebUrl: `https://caufooding.com/shop/${shop.data._id}`,
+            webUrl: `https://caufooding.com/shop/${shop.data._id}`,
+          },
+        },
+        social: {
+          likeCount: shop.data.likerCount,
+          // commentCount: 3,
+          // sharedCount: 35,
+        },
+        buttons: [
+          {
+            title: "푸딩 홈",
+            link: {
+              mobileWebUrl: `https://caufooding.com`,
+              webUrl: `https://caufooding.com`,
+            },
+          },
+          {
+            title: "가게 바로가기",
+            link: {
+              mobileWebUrl: `https://caufooding.com/shop/${shop.data._id}`,
+              webUrl: `https://caufooding.com/shop/${shop.data._id}`,
+            },
+          },
+        ],
+      }
+
+      setTemplate(template2)
+
+    }
+  }, [shop.data]);
 
   // useEffect(() => {
   //   if (shopImage.data?.locations) {
@@ -727,6 +887,30 @@ function DetailPage({ match, history, location }: DetailPageProps) {
           />
         </ShopImage>
       </ShopImageContainer>
+      {/* <Helmet>
+          <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+        </Helmet>
+        <KakaoShareButton /> */}
+
+
+      {/* <KakaoLinkDefault
+          className="template"
+          template={template}
+          jsKey={"ba8a2ba784111293f60a62d5bd6ca2aa"}
+        >
+          <button>카카오링크 디폴트 템플릿</button>
+        </KakaoLinkDefault> */}
+
+
+
+        {/* <KakaoLinkScrap
+          className="scrap"
+          requestUrl={"https://developers.kakao.com"}
+          jsKey={"acd0352115cdbb3ea69988653c3be5f4"}
+        >
+          <button>카카오링크 스크랩</button>
+        </KakaoLinkScrap> */}
+        
       <ShopActionContainer>
         {likeOffset === 0 ? (
           <ShopAction onClick={onLikeButton}>
@@ -757,6 +941,16 @@ function DetailPage({ match, history, location }: DetailPageProps) {
           <MdEdit />
           <span>리뷰 작성</span>
         </ShopAction>
+        <KakaoLinkDefault
+          className="template"
+          template={template}
+          jsKey={"acd0352115cdbb3ea69988653c3be5f4"}
+        >
+        <ShopAction>
+          <MdShare />
+          <span>카카오톡 공유</span>
+        </ShopAction>
+        </KakaoLinkDefault>
       </ShopActionContainer>
       <Divider />
       <KakaoMapBlock>
