@@ -10,6 +10,7 @@ import { createBrowserHistory } from 'history';
 import SimpleLoader from 'components/common/SimpleLoader';
 
 const ResultPage = React.lazy(() => import(/* webpackChunkName: "result", webpackPrefetch: true */ './pages/ResultPage/ResultPage'));
+const TestResultPage = React.lazy(() => import(/* webpackChunkName: "result", webpackPrefetch: true */ './pages/ResultPage/TestResultPage'));
 const DetailPageRouter = React.lazy(() => import(/* webpackChunkName: "detail", webpackPrefetch: true */ './pages/DetailPage/DetailPageRouter'));
 const AdminRouter = React.lazy(() => import(/* webpackChunkName: "admin" */ './pages/AdminPage/AdminRouter'));
 const RouletteRouter = React.lazy(() => import(/* webpackChunkName: "roulette", webpackPrefetch: true */ './pages/RoulettePage/RoulettePage'));
@@ -48,6 +49,7 @@ function App() {
         <Route component={LoginPageRouter} path="/auth" />
         <Route component={YesNoPageRouter} path="/yesno" />
         <Route component={ResultPage} path="/result" />
+        <Route component={TestResultPage} path="/testresult" />
         <Route component={AdminRouter} path="/admin" />
         <Route component={RouletteRouter} path="/roulette" />
         <Route component={RouletteListRouter} path="/rouletteList" />
