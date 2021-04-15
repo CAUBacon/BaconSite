@@ -13,12 +13,61 @@ import noResultCat2 from 'assets/NoResultCat2.svg';
 import ScrollToTopController from 'components/common/ScrollToTopController';
 import palette from 'styles/palette';
 import { Location } from 'api/getShop';
-import country from 'assets/country.svg';
-import flex from 'assets/flex.svg';
-import friends from 'assets/friends.svg';
-import instagram from 'assets/instagram.svg';
-import location from 'assets/location.svg';
-import report from 'modules/report';
+import sushi from 'assets/sushi.png';
+import steak from 'assets/steak.png';
+import bacon from 'assets/bacon.png';
+import chickenfoot from 'assets/chickenfoot.png';
+import jjimdak from 'assets/jjimdak.png';
+import pizza from 'assets/pizza.png';
+import sandwich from 'assets/sandwich.png';
+import gukbap from 'assets/gukbap.png';
+import sweetsourpork from 'assets/sweetsourpork.png';
+import porkcutlet from 'assets/porkcutlet.png';
+import pasta from 'assets/pasta.png';
+import salad from 'assets/salad.png';
+import tteokbokki from 'assets/tteokbokki.png';
+import chicken from 'assets/chicken.png';
+import mara from 'assets/mara.png';
+import risotto from 'assets/risotto.png';
+import { KakaoLinkDefault} from "react-kakao-link"
+import { MdShare } from 'react-icons/md';
+
+
+interface TemplateProps {
+  objectType: string;
+  content: {
+      title: string;
+      description: string;
+      imageUrl: string;
+      link: {
+          mobileWebUrl: string;
+          webUrl: string;
+      };
+  };
+  social: {
+      likeCount: number;
+      // commentCount: number;
+      // sharedCount: number;
+  };
+  buttons: [
+    {
+      title: string,
+      link: {
+        mobileWebUrl: string,
+        webUrl: string,
+      },
+    },
+    {
+      title: String,
+      link: {
+        mobileWebUrl: string,
+        webUrl: string,
+      },
+    },
+  ],
+}
+
+
 
 const mbtiResultReport = [
   {
@@ -36,7 +85,7 @@ const mbtiResultReport = [
     goodparter: ['enfj', 'entp', 'isfp', 'infp'],
     food: '깔끔한 초밥',
     menu: '초밥',
-    img: country,
+    img: sushi,
   },
   {
     id: 2,
@@ -53,7 +102,7 @@ const mbtiResultReport = [
     goodparter: ['entj','enfp', 'intp', 'istp'], //entp, intp
     food: '실속있는 한우',
     menu: '한우', // + 곱창
-    img: flex,
+    img: steak,
   },
   {
     id: 3,
@@ -70,7 +119,7 @@ const mbtiResultReport = [
     goodparter: ['estj', 'istp'],
     food: '부드러운 리조또',
     menu: '리조또',
-    img: friends,
+    img: risotto,
   },
   {
     id: 4,
@@ -87,7 +136,7 @@ const mbtiResultReport = [
     goodparter: ['esfj', 'infp', 'enfp', 'estp', 'isfp'],
     food: '센세이션한 마라탕',
     menu: '마라탕',
-    img: instagram,
+    img: mara,
   },
   {
     id: 5,
@@ -104,7 +153,7 @@ const mbtiResultReport = [
     goodparter: ['enfp','estp', 'infj'],
     food: '든든한 국밥',
     menu: '국밥',
-    img: location,
+    img: gukbap,
   },
   {
     id: 6,
@@ -121,7 +170,7 @@ const mbtiResultReport = [
     goodparter: ['entp','enfj', 'esfj', 'estj'],
     food: '촉촉한 찜닭', //케이크? 아이스크림?
     menu: '찜닭',
-    img: country,
+    img: jjimdak,
   },
   {
     id: 7,
@@ -139,7 +188,7 @@ const mbtiResultReport = [
     goodparter: ['estp'],
     food: '지글지글 삼겹살', //와인 옆 불판에서 지글지글 구워지며 산과 달을 떠올리는 삼겹살
     menu: '삼겹살',
-    img: flex
+    img: bacon
   },
   {
     id: 8,
@@ -156,7 +205,7 @@ const mbtiResultReport = [
     goodparter: ['esfp', 'entj', 'enfj'],
     food: '조화로운 피자',
     menu: '피자',
-    img: friends,
+    img: pizza,
   },
   {
     id: 9,
@@ -165,7 +214,7 @@ const mbtiResultReport = [
     description: '당신은 팔방미인 스타일입니다.',
     list: [ '개방적이고 센스 있고 유머러스한 당신은 문제해결력이 뛰어나고 어디서든 적응을 잘하며 친구들과 어울리기 좋아해요.',
             '세 줄 이상 안읽어요. 긴 설명을 좋아하지 않고 오감으로 느낄 수 있는 삶을 즐겨요.',
-            '개그 욕심이 많고 관심 받는걸 좋아해서 누군가 자신 떄문에 폭소하고 관심을 준다면, 그 날 너무 기뻐서 잠도 제대로 못자요.',
+            '개그 욕심이 많고 관심 받는걸 좋아해서 누군가 자신 때문에 폭소하고 관심을 준다면, 그 날 너무 기뻐서 잠도 제대로 못자요.',
             '순발력이 뛰어나고 많은 사실들을 쉽게 기억하며, 예술적인 멋과 판단력을 가지고 있어요.',
             '타고난 문제 해결사이면서 동시에 타고난 말썽꾸러기에요. 문제를 해결도 하고 유발도 해요.',
             '자신의 개성에 따라 행동하며 겁이 없고 위험천만한 행동을 상대적으로 자주 하는 경향이 있어요. 미재보단 지금 이 순간을 소중히 여겨요.',],
@@ -173,7 +222,7 @@ const mbtiResultReport = [
     goodparter: ['infp'],
     food: '꼬불꼬불 파스타', // 꼬불꼬불 파스타?? 멋들어진 스테이크??
     menu: '파스타',
-    img: instagram,
+    img: pasta,
   },
   {
     id: 10,
@@ -191,7 +240,7 @@ const mbtiResultReport = [
     goodparter: ['intp'],
     food: '달달한 탕수육',
     menu: '탕수육',
-    img: location,
+    img: sweetsourpork,
   },
   {
     id: 11,
@@ -208,7 +257,7 @@ const mbtiResultReport = [
     goodparter: ['istp','isfp'],
     food: '매콤한 떡볶이',
     menu: '떡볶이',
-    img: country,
+    img: tteokbokki,
   },
   {
     id: 12,
@@ -226,7 +275,7 @@ const mbtiResultReport = [
     goodparter: ['isfp'],
     food: '트렌디한 치킨',
     menu: '치킨',
-    img: flex,
+    img: chicken,
   },
   {
     id: 13,
@@ -243,7 +292,7 @@ const mbtiResultReport = [
     goodparter: ['infj','infj'],
     food: '위풍당당 돈까스',
     menu: '돈까스',
-    img: friends,
+    img: porkcutlet,
   },
   {
     id: 14,
@@ -261,7 +310,7 @@ const mbtiResultReport = [
     goodparter: ['intj'],
     food: '상큼한 샐러드',
     menu: '샐러드',
-    img: instagram,
+    img: salad,
   },
   {
     id: 15,
@@ -278,7 +327,7 @@ const mbtiResultReport = [
     goodparter: ['istj'],
     food: '오밀조밀 샌드위치', //오밀조밀 볶음밥??
     menu: '샌드위치',
-    img: location,
+    img: sandwich,
   },
   {
     id: 16,
@@ -295,7 +344,7 @@ const mbtiResultReport = [
     goodparter: ['isfj'],
     food: '매운 불닭발', //매운 닭발?? 칼칼한 라면??
     menu: '닭발',
-    img: friends,
+    img: chickenfoot,
   }
 ]
 
@@ -380,7 +429,7 @@ const FullPartnerContainer = styled.div`
   color: white;
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 `
 
 const PartnerContainer = styled.button`
@@ -445,7 +494,7 @@ const RecommendTitle = styled.div`
   font-family: 'Nanum Gothic';
   font-size: 20px;
   font-weight: 700;
-  color: black;
+  color: white;
   margin-top: 10px;
   margin-bottom: 20px;
 `
@@ -463,6 +512,25 @@ const FoodingContainer = styled.button`
   color: white;
   margin: 5px;
   margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 13px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+`
+
+const InstaContainer = styled.button`
+  height: 100px;
+  width: 100%;
+  // display: 100%;
+  justify-content: center;
+  text-align: center;
+  background-color: white;
+  background-color: rgba( 255, 255, 255, 0.8 );
+  font-size: 30px;
+  font-weight: 700;
+  color: black;
+  margin: 5px;
   margin-bottom: 20px;
   padding: 13px;
   padding-left: 20px;
@@ -546,6 +614,41 @@ const FilterContainer = styled.div`
   }
 `;
 
+const ShopActionContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  background-color: rgba( 255, 255, 255, 0.7 );
+  color: ${palette.mainRed};
+  height: 80px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+`;
+
+const ShopAction = styled.button`
+  outline: none;
+  border: none;
+  background-color: transparent;
+
+  color: inherit;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  svg {
+    font-size: 1.8rem;
+    stroke-width: 0.1%;
+    vector-effect: non-scaling-stroke;
+  }
+
+  span {
+    margin-top: 5px;
+  }
+`;
+
 
 function TestResultPage({ location }: RouteComponentProps) {
   const [resultMBTI, setResultMBTI] = useState('');
@@ -571,9 +674,50 @@ function TestResultPage({ location }: RouteComponentProps) {
   type LocationFilter = 'all' | 'front' | 'back';
 
   const [locationFilter, setLocationFilter] = useState<LocationFilter>('all');
+  const [jsKey, setJsKey] = useState(`${process.env.REACT_APP_KAKAO_JAVASCRIPT_API_KEY}`);
+
+  const [template, setTemplate] = useState({
+    objectType: "feed",
+    content: {
+      title: "",
+      description: "#케익 #딸기 #삼평동 #카페 #분위기 #소개팅",
+      imageUrl:
+        "http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
+      link: {
+        mobileWebUrl: "https://developers.kakao.com",
+        webUrl: "https://developers.kakao.com",
+      },
+    },
+    social: {
+      // likeCount: 286,
+      // commentCount: 45,
+      // sharedCount: 845,
+    },
+    buttons: [
+      {
+        title: "웹으로 보기",
+        link: {
+          mobileWebUrl: "https://developers.kakao.com",
+          webUrl: "https://developers.kakao.com",
+        },
+      },
+      {
+        title: "앱으로 보기",
+        link: {
+          mobileWebUrl: "https://developers.kakao.com",
+          webUrl: "https://developers.kakao.com",
+        },
+      },
+    ],
+  });
 
 
   useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://developers.kakao.com/sdk/js/kakao.js'
+    script.async = true
+    document.body.appendChild(script)
+
     let resultMBTI = '';
 
     const param = location.search
@@ -644,10 +788,69 @@ function TestResultPage({ location }: RouteComponentProps) {
     window.location.href='http://caufooding.com'
   }
 
+  function moveToInsta(){
+    window.location.href='https://www.instagram.com/fooding_cau/'
+  }
+
   function moveToPartner(mbti: string) {
     console.log(mbti)
     window.location.href=`http://caufooding.com/testresult?ei=${mbti[0]}&sn=${mbti[1]}&tf=${mbti[2]}&pj=${mbti[3]}`
   }
+
+  useEffect(() => {
+
+      let menus_list: string = ""
+
+      // shop.data.menus.map((menu) => (
+      //   menus_list = menus_list + "#" + menu.title + " "
+      // ))
+
+      let food_img: string = ""
+
+      // shop.data.shopImage.map((image) => (
+      //   food_img = image.imageLink
+      // ))
+      // `#${shop.data.menus[0].title} #${shop.data.menus[1].title} #${shop.data.menus[2].title}`
+      let template2 = {
+        objectType: "feed",
+        content: {
+          title: `${resultTitle} ${resultFood}`,
+          description: `${resultDescription}`,
+          imageUrl: 'https://ifh.cc/g/WbMEwy.jpg',
+          // `${shop.data.shopImage[0].imageLink}`,
+          // food_img,
+          // `https://d3s32mx82uelsl.cloudfront.net/images/05a4bb10-5e4d-490c-bdd0-d7a33994e8f916015397`,
+          link: {
+            mobileWebUrl: window.location.href,
+            webUrl: window.location.href,
+          },
+        },
+        social: {
+          // likeCount: shop.data.likerCount,
+          // commentCount: 3,
+          // sharedCount: 35,
+        },
+        buttons: [
+          {
+            title: "푸딩 홈",
+            link: {
+              mobileWebUrl: `https://caufooding.com`,
+              webUrl: `https://caufooding.com`,
+            },
+          },
+          {
+            title: "테스트 바로가기",
+            link: {
+              mobileWebUrl: `https://caufooding.com/test`,
+              webUrl: `https://caufooding.com/test/`,
+            },
+          },
+        ],
+      }
+
+      setTemplate(template2)
+
+  }, [resultTitle, resultFood, resultDescription]);
 
   return (
     <Container color="red">
@@ -687,12 +890,24 @@ function TestResultPage({ location }: RouteComponentProps) {
           <PartnerFood>{badFood}</PartnerFood>
         </PartnerContainer>
       </FullPartnerContainer>
+      <ShopActionContainer>
+      <KakaoLinkDefault
+          className="template"
+          template={template}
+          jsKey={jsKey}
+        >
+          <ShopAction>
+          <MdShare />
+          <span>카카오톡 공유</span>
+          </ShopAction>
+        </KakaoLinkDefault>
+        </ShopActionContainer>
       {/* <div>{resultMBTI}</div>
       <div>최고의 궁합</div>
       <div>{resultGoodpartner}</div>
       <div>최악의 궁합</div>
       <div>{resultBadpartner}</div> */}
-      <ListContainer>
+      {/* <ListContainer> */}
         <RecommendTitle>🐱 맞춤 식당 추천 🐱</RecommendTitle>
       {shops.loading ? (
         <Loader color="white" />
@@ -757,8 +972,9 @@ function TestResultPage({ location }: RouteComponentProps) {
           <NoResultComment>다시 시도해주세요</NoResultComment>
         </>
       )}
-      </ListContainer>
+      {/* </ListContainer> */}
       <FoodingContainer onClick={moveToHome}>Fooding 바로가기</FoodingContainer>
+      <InstaContainer onClick={moveToInsta}>Fooding Instagram</InstaContainer>
     </Container>
   );
 }
