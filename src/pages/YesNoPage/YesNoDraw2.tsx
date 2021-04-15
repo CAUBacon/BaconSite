@@ -19,31 +19,22 @@ interface ShopImageProps {
 }
 
 const SimpleImage = styled.img`
-//   height: 150px;
+  height: 150px;
   object-fit: contain;
 `;
 
 const SimpleText = styled.div`
-//   height: 100px;
-  width: 260px;
+  height: 100px;
   justify-content: center;
   text-align: center;
-  font-weight: 900;
   color: white;
-  font-size: 18px;
-  line-height: 40px;
-  word-break: keep-all;
-  margin-top: 20px;
-  margin-bottom: 20px;
-//   white-space:pre;
 `
 
 const SimpleImageContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 120px;
+  margin-bottom: 50px;
   padding: 0 30px;
 `;
 
@@ -106,7 +97,6 @@ interface Props {
   id: number;
   name: string;
   txt: string;
-  txt2: string;
   show: boolean;
   onChange: (e: number) => void;
 }
@@ -120,7 +110,6 @@ class YesNoDraw extends React.Component<Props> {
     id: 1,
     name: '',
     txt: '',
-    txt2: '',
     show: false,
     onChange: handleChange,
   };
@@ -131,7 +120,7 @@ class YesNoDraw extends React.Component<Props> {
   }
 
   render() {
-    const { id, name, txt, txt2, show } = this.props;
+    const { id, name, txt, show } = this.props;
     const path = './';
 
     return (
@@ -147,7 +136,6 @@ class YesNoDraw extends React.Component<Props> {
             <SimpleImageContainer>
               {/* <SimpleImage src={img} /> */}
               <SimpleText>{txt}</SimpleText>
-              <SimpleText>{txt2}</SimpleText>
             </SimpleImageContainer>
           </FullHeightFade>
         ) : (
