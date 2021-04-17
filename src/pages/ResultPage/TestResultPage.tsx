@@ -447,6 +447,8 @@ const PartnerContainer = styled.button`
   margin-top: 20px;
   margin-bottom: 30px;
   border-radius: 10px;
+  border: none;
+  outline: none;
 `
 
 const PartnerCategory = styled.div`
