@@ -743,9 +743,8 @@ function TestResultPage({ location }: RouteComponentProps) {
         else if(option[1] == "dc"){tempresult="f"}
         else if(option[1] == "fv"){tempresult="j"}
         resultMBTI = resultMBTI + tempresult;
-      } 
+      }
     });
-    console.log(resultMBTI)
     setResultMBTI(resultMBTI)
 
     var searchMenu = ''
@@ -784,11 +783,11 @@ function TestResultPage({ location }: RouteComponentProps) {
 
     let isDetail = false;
     let options: getShopsInterface = {};
-    
+
     options = {
       ...options,
       ['name']: searchMenu,
-    } 
+    }
     setIsSearch(true);
     onGetShops(options, isDetail);
 
@@ -807,7 +806,6 @@ function TestResultPage({ location }: RouteComponentProps) {
   }
 
   function moveToPartner(mbti: string) {
-    console.log(mbti)
     var tmpre1 = ""
     var tmpre2 = ""
     var tmpre3 = ""

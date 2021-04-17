@@ -159,13 +159,11 @@ function KakaoPage({ location, history }: RouteComponentProps) {
 
   useEffect(() => {
     if (user) {
-      console.log('check 성공');
       setError(false);
       rediretForSuccess(user);
     } else {
       setError(true);
     }
-    console.log(user);
   }, [user, rediretForSuccess]);
 
   useEffect(() => {

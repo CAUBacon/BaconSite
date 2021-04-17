@@ -41,7 +41,6 @@ const LOAD_IMG_EVENT_TYPE = 'loadImage';
 
 function onIntersection(entries: IntersectionObserverEntry[], io: IntersectionObserver) {
   entries.forEach((entry) => {
-    console.log(entry);
     if (entry.isIntersecting) {
       io.unobserve(entry.target);
       entry.target.dispatchEvent(new CustomEvent(LOAD_IMG_EVENT_TYPE));

@@ -199,8 +199,6 @@ function LoginPage({ history }: RouteComponentProps) {
 
   useEffect(() => {
     if (user) {
-      console.log('check 성공');
-      console.log(user);
       try {
         localStorage.setItem('user', JSON.stringify(user));
         let redir = localStorage.getItem('redir');
@@ -214,10 +212,8 @@ function LoginPage({ history }: RouteComponentProps) {
   const onSubmit = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      console.log(loading);
       if (!valid) return;
       if (loading) return;
-      console.log('if 통과');
       if (mode === 'login') {
         loginDispatch({ email: form.email, password: form.password });
       } else if (mode === 'register') {

@@ -59,7 +59,6 @@ class RoulettePage extends React.Component<Props, State> {
   };
 
   setSpin = (bool: boolean) => {
-    console.log(bool);
     this.setState({
       beClicked: bool,
     });
@@ -185,7 +184,6 @@ class RoulettePage extends React.Component<Props, State> {
               fontSize={23}
               onStopSpinning={() => {
                 // useEffect Error 피하기위한 꼼수
-                console.log('stop');
                 setTimeout(() => {
                   this.setState({
                     available: true,

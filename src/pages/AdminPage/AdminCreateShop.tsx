@@ -92,7 +92,6 @@ function AdminCreateShop() {
             : form.foodCategory.concat(event.target.value as any),
         });
       } else if (event.target.name === 'detailFoodCategory') {
-        console.log(event.target.value);
         setForm({
           ...form,
           detailFoodCategory: form.detailFoodCategory.includes(event.target.value as any)
@@ -108,8 +107,6 @@ function AdminCreateShop() {
     },
     [form],
   );
-
-  console.log(form.category);
 
   return (
     <ShopInformationContainer onSubmit={onSubmit} method="post">

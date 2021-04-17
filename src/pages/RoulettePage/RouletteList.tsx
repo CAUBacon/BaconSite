@@ -173,7 +173,7 @@ function RouletteList( {history}: RouteComponentProps): JSX.Element {
         onGetShops({});
     }, [onGetShops]);
 
-  
+
 
   const onToggle = (id: number): void => {
     const nextRouletteItems: RouletteItemState[] = RouletteItems.map((item) => {
@@ -195,16 +195,12 @@ function RouletteList( {history}: RouteComponentProps): JSX.Element {
         setRouletteItems(nextRouletteItems);
     }
 
-    console.log('push add button');
   };
 
   const onRemove = (id: number): void => {
-      console.log(id);
-      console.log(RouletteItems);
     const nextRouletteItems: RouletteItemState[] = RouletteItems.filter((item) => item.id !== id);
 
     setRouletteItems(nextRouletteItems);
-    console.log(nextRouletteItems);
     };
 
   const onChange = (e: React.FormEvent<HTMLInputElement>): void => {
@@ -219,9 +215,7 @@ function RouletteList( {history}: RouteComponentProps): JSX.Element {
     const newItem: RouletteItemState = { id: nextRouletteId++, text: input, done: false };
     const nextRouletteItems: RouletteItemState[] = RouletteItems.concat(newItem);
     if (RouletteItems.length < 2) {
-      console.log('2개 이상 입력하셔야 합니다.');
       // if(RouletteItems.length === 0) {
-      //   console.log('완전랜덤');
       //   this.props.history.push({
       //     pathname: '/roulette',
       //     search: '?items=' + 'r,a,n,d,o,m',
@@ -233,7 +227,6 @@ function RouletteList( {history}: RouteComponentProps): JSX.Element {
         search: '?items=' + data.map((data) => data.option).join(','),
       });
       window.location.reload(false);
-    console.log('refresh done');
     }
     // setTimeout(() => {
     // }, 100);
@@ -251,7 +244,6 @@ function RouletteList( {history}: RouteComponentProps): JSX.Element {
 
         if(shops.data){
             shops.data.map((shop) => shopList.push(shop.name));
-            console.log(shopList);
 
             var length = shopList.length;
 
@@ -272,10 +264,8 @@ function RouletteList( {history}: RouteComponentProps): JSX.Element {
                 randomShop[i] = shopList[j];
                 j++;
             }
-            console.log(randomShop);
         }
 
-        console.log('완전랜덤');
         history.push({
           pathname: '/roulette',
           search: '?items=' + randomShop.join(','),
@@ -283,7 +273,6 @@ function RouletteList( {history}: RouteComponentProps): JSX.Element {
     }
     // setTimeout(() => {
     window.location.reload(false);
-    console.log('refresh done');
     // }, 100);
   };
 
@@ -303,12 +292,6 @@ function RouletteList( {history}: RouteComponentProps): JSX.Element {
     }));
 
     if (RouletteItems.length >= 1) {
-      // let data = RouletteItems.map((v) => {
-      //     console.log(RouletteItems[v].text);
-      //     return RouletteItems;
-      // });
-
-      // console.log(RouletteItems.id.text);
       for (var i = 0; i < RouletteItems.length; i++) {
         data[i].option = RouletteItems[i].text;
         if (i % 2 == 0) {
@@ -321,9 +304,8 @@ function RouletteList( {history}: RouteComponentProps): JSX.Element {
           data[i].font = 'Nanum Gothic';
         }
       }
-      console.log(data);
     }
-    
+
 
     if (beClicked === true && RouletteItems.length == 0) {
       for (var i = 0; i < 6; i++) {

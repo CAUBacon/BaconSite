@@ -127,21 +127,18 @@ class FilterPage extends React.Component<Props, State> {
   //키워드에서 '맵찔' 제거함.
 
   changeSortingColor(i: number) {
-    console.log(i);
     this.setState({
       sorting_bool: this.state.sorting_bool.map((item, index) => (index !== i ? (item = false) : (item = true))),
     });
   }
 
   changeCategoryColor(i: number) {
-    console.log(i);
     this.setState({
       category_bool: this.state.category_bool.map((item, index) => (index !== i ? item : !item)),
     });
   }
 
   changeFoodColor(i: number) {
-    console.log(i);
     this.setState({
       food_bool: this.state.food_bool.map((item, index) => (index !== i ? item : !item)),
     });
@@ -153,24 +150,20 @@ class FilterPage extends React.Component<Props, State> {
   }
 
   changePlaceColor(i: number) {
-    console.log(i);
     this.setState({
       place_bool: this.state.place_bool.map((item, index) => (index !== i ? item : !item)),
     });
   }
 
   changePriceColor(i: number) {
-    console.log(i);
     this.setState({
       price_bool: this.state.price_bool.map((item, index) => (index !== i ? item : !item)),
     });
   }
 
   changeKeywordColor(i: number) {
-    // console.log(i);
     let trueKeyCount = 1;
     this.state.keyword_bool.map((item, index) => (item === true ? trueKeyCount++ : trueKeyCount));
-    console.log(trueKeyCount);
     this.setState({
       keyword_bool: this.state.keyword_bool.map((item, index) =>
         index !== i ? (trueKeyCount < 3 ? item : item) : trueKeyCount < 3 || item == true ? !item : item,
@@ -178,7 +171,6 @@ class FilterPage extends React.Component<Props, State> {
     });
     trueKeyCount = 1;
     this.state.keyword_bool.map((item, index) => (item === true ? trueKeyCount++ : trueKeyCount));
-    console.log(trueKeyCount);
   }
 
   moveHref = (data: DataInterface[]) => {
@@ -200,7 +192,6 @@ class FilterPage extends React.Component<Props, State> {
         '&keyword=' +
         data[5].option.join(','),
     });
-    console.log(data);
   };
 
   // data.map((data) => data.option)
@@ -350,7 +341,6 @@ class FilterPage extends React.Component<Props, State> {
         data[5].option.push(keyword[i]);
       }
     }
-    console.log(data);
     // }
 
     var TagTextStyle = {
