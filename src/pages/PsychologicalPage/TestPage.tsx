@@ -24,7 +24,7 @@ const base = [
     id: 1,
     name: '새로운 사람을 만나도 어색하지 않다.',
     img: country,
-    txt: "식사 모임에 나갔더니 처음보는 사람이 있다.",
+    txt: "#01. 친구들과의 술자리를 나갔더니 처음 보는 사람이 있다.",
     txt2: "이때 나는 어떨까?"
   },
   {
@@ -36,14 +36,14 @@ const base = [
   },
   {
     id: 3,
-    name: '이 의견은 괜히 말했나?',
+    name: "'이 의견은 괜히 말한 거 같은데... 너무 많이 말했나.'",
     img: flex,
-    txt: '밥을 먹고 친구들과 카페에서 과제 회의를 했다. 어쩐지 회의가 끝나고 무언가를 후회중인 나.',
+    txt: '#02. 밥을 먹고 친구들과 카페에서 과제 회의를 했다. 어쩐지 회의가 끝나고 무언가를 후회 중인 나.',
     txt2: "어떤 걸 후회하고 있을까?"
   },
   {
     id: 4,
-    name: '이 의견도 말할걸...',
+    name: "'이 의견도 말할걸... 너무 신중했다.'",
     img: flex,
     txt: "",
     txt2: ""
@@ -52,8 +52,8 @@ const base = [
     id: 5,
     name: '어느 정도의 소리가 도움이 되므로 자리를 찾아서 앉는다.',
     img: location,
-    txt: "회의가 끝나고 공부하러 카페에 갔는데 음악이 흘러나오고 몇몇 테이블에서 사람들이 대화를 나누고 있다.",
-    txt2: "이 때 나는 어떻게 할까?"
+    txt: "#03. 회의가 끝나고 공부하러 카페에 갔는데 음악이 흘러나오고 몇몇 테이블에서 사람들이 대화를 나누고 있다.",
+    txt2: "이때 나는 어떻게 할까?"
   },
   {
     id: 6,
@@ -64,9 +64,9 @@ const base = [
   },
   {
     id: 7,
-    name: '"소스 맛이..." 맛에 대해 상세히 설명해준다.',
+    name: '"소스 맛이..." 맛에 대해 상세히 설명해 준다.',
     img: friends,
-    txt: "친구가 어제 내가 먹은 떡볶이 새로나온 맛이 어떤지 물어본다.",
+    txt: "#04. 친구가 어제 내가 먹은 떡볶이 새로 나온 맛이 어떤지 물어본다.",
     txt2: "뭐라고 대답할까?"
   },
   {
@@ -78,10 +78,10 @@ const base = [
   },
   {
     id: 9,
-    name: '상세히 어느 위치에 있는지 설명한다.',
+    name: '어느 위치에 있는지 상세하게 설명한다.',
     img: instagram,
-    txt: "같이 밥을 먹기로 한 친구가 식당 위치를 몰라 해메고 있다.",
-    txt2: "어떻게 설명해줄까?"
+    txt: "#05. 같이 밥을 먹기로 한 친구가 식당 위치를 몰라 헤메고 있다.",
+    txt2: "어떻게 설명해 줄까?"
   },
   {
     id: 10,
@@ -92,37 +92,37 @@ const base = [
   },
   {
     id: 11,
-    name: '오탈자, 줄 간격 등 구체적이고 세밀한 부분을 먼저 체크한다.',
+    name: '오탈자, 줄 간격 등 세밀한 부분을 먼저 체크한다.',
     img: country,
-    txt: "보고서 작성을 다 끝내고 상사에게 피드백을 받으러 간다.",
+    txt: "#06. 과제를 다 끝내고 최종 제출 전 마지막 검토를 해보자!",
     txt2: "어떤 부분을 먼저 살펴볼까?"
   },
   {
     id: 12,
-    name: '전체적인 맥락을 먼저 체크하고 일관성이 없는 부분을 삭제한다.',
+    name: '전체적인 맥락을 먼저 확인하고 일관성이 없는 부분을 지운다.',
     img: country,
     txt: "",
     txt2: ""
   },
   {
     id: 13,
-    name: '"어떤 시험인데? 왜 떨어졌어?"라고 묻는다.',
+    name: '"어떤 시험인데?"라고 묻는다.',
     img: flex,
-    txt: '"나 시험 떨어졌어."',
+    txt: '"#07. 나 시험 떨어졌어."',
     txt2: "친구 말에 대한 나는 반응은?"
   },
   {
     id: 14,
-    name: '"어떡해.. 힘들겠다. 나랑 맛있는 거 먹으러 가자! 다음엔 잘될거야!"라고 위로한다.',
+    name: '"어떡해.. 힘들겠다. 나랑 맛있는 거 먹으러 가자! 다음엔 잘 될 거야!"라고 위로한다.',
     img: flex,
     txt: "",
     txt2: ""
   },
   {
     id: 15,
-    name: '"고마워"하고 속으로 내가 그렇게 힘들어보였나? 되짚어본다.',
+    name: '"고마워" 하고 속으로 내가 그렇게 힘들어 보였나? 되짚어본다.',
     img: location,
-    txt: "요새 내가 힘들어보인다며 케이크를 사온 친구.",
+    txt: "#08. 요새 내가 힘들어 보인다며 케이크를 사 온 친구.",
     txt2: "나의 반응은?"
   },
   {
@@ -134,9 +134,9 @@ const base = [
   },
   {
     id: 17,
-    name: '"헐, 뭐 먹고 배탈난거야?"',
+    name: '"헐, 뭐 먹고 배탈 난 거야?"',
     img: friends,
-    txt: '"나 배탈난 것 같아"라고 말하는 친구,',
+    txt: '"#09. 나 배탈 난 것 같아"라고 말하는 친구,',
     txt2: "나의 반응은 어떨까?"
   },
   {
@@ -148,23 +148,23 @@ const base = [
   },
   {
     id: 19,
-    name: '일단 놀고 한 목요일 쯤? 임박했을 때 처리한다.',
+    name: '일단 놀고 한 목요일쯤? 임박했을 때 처리한다.',
     img: instagram,
-    txt: "오늘은 월요일! 금요일까지인 과제가 나왔다. 하루만에 다 할 수 있는 분량이다.",
+    txt: "#10. 오늘은 월요일! 금요일까지인 과제가 나왔다. 하루 만에 다 할 수 있는 분량이다.",
     txt2: "이 과제, 어떻게 할까?"
   },
   {
     id: 20,
-    name: '대략 일주일 계획을 세우고 그것에 맞춰 일을 처리한다.',
+    name: '일주일 계획을 세우고 그것에 맞춰 일을 처리한다.',
     img: instagram,
     txt: "",
     txt2: ""
   },
   {
     id: 21,
-    name: '웨이팅이 길면 그 때 다른 근처 식당을 가면 된다. 일단 출발!',
+    name: '웨이팅이 길면 그때 다른 근처 식당을 가면 된다. 일단 출발!',
     img: country,
-    txt: "저녁시간, 친구와 함께 웨이팅이 종종 있는 맛집을 가기로 했다.",
+    txt: "#11. 저녁시간, 친구와 함께 웨이팅이 종종 있는 맛집을 가기로 했다.",
     txt2: "출발하기 전 나의 행동은?"
   },
   {
@@ -176,14 +176,14 @@ const base = [
   },
   {
     id: 23,
-    name: '날 잡아서 정리하는 편이라 청소 먼저 한다.',
+    name: '날 잡아서 정리하는 편이라 청소 먼저 해야 하는 상태',
     img: flex,
-    txt: "오늘은 집에서 공부하기로 했다.",
+    txt: "#12. 오늘은 집에서 공부하기로 했다.",
     txt2: "내 책상의 상태는?"
   },
   {
     id: 24,
-    name: '정리정돈을 자주하는 편이라 이미 깔끔하다.',
+    name: '정리 정돈을 자주 하는 편이라 이미 깔끔한 상태',
     img: flex,
     txt: "",
     txt2: ""
@@ -280,9 +280,9 @@ class TestPage extends React.Component<Props, State> {
             resultValue = resultValue + resultDataSet[i]
         }
         if(resultValue > 0){
-            data[0] = 'e'
+            data[0] = 'qa'
         } else {
-            data[0] = 'i'
+            data[0] = 'az'
         }
 
         resultValue = 0
@@ -290,9 +290,9 @@ class TestPage extends React.Component<Props, State> {
             resultValue = resultValue + resultDataSet[i]
         }
         if(resultValue > 0){
-            data[1] = 's'
+            data[1] = 'ws'
         } else {
-            data[1] = 'n'
+            data[1] = 'sx'
         }
 
         resultValue = 0
@@ -300,9 +300,9 @@ class TestPage extends React.Component<Props, State> {
             resultValue = resultValue + resultDataSet[i]
         }
         if(resultValue > 0){
-            data[2] = 't'
+            data[2] = 'ed'
         } else {
-            data[2] = 'f'
+            data[2] = 'dc'
         }
 
         resultValue = 0
@@ -310,14 +310,14 @@ class TestPage extends React.Component<Props, State> {
             resultValue = resultValue + resultDataSet[i]
         }
         if(resultValue > 0){
-            data[3] = 'p'
+            data[3] = 'rf'
         } else {
-            data[3] = 'j'
+            data[3] = 'fv'
         }
 
       this.props.history.push({
         pathname: '/testresult',
-        search: '?ei=' + data[0] + '&sn=' + data[1] + '&tf=' + data[2] + '&pj=' + data[3],
+        search: '?okm=' + data[0] + '&ijn=' + data[1] + '&uhb=' + data[2] + '&ygv=' + data[3],
       });
     }
   }
@@ -328,13 +328,13 @@ class TestPage extends React.Component<Props, State> {
     this.props.history.push({
       pathname: '/testresult',
       search:
-        '?ei=' +
+        '?okm=' +
         data[0].option.join(',') +
-        '&sn=' +
+        '&ijn=' +
         data[1].option.join(',') +
-        '&tf=' +
+        '&uhb=' +
         data[2].option.join(',') +
-        '&pj=' +
+        '&ygv=' +
         data[3].option.join(','),
     });
   };

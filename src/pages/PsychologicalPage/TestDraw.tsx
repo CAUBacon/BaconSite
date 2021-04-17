@@ -33,8 +33,19 @@ const SimpleText = styled.div`
   font-size: 18px;
   line-height: 40px;
   word-break: keep-all;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
+//   white-space:pre;
+`
+
+const SimpleText2 = styled.div`
+  justify-content: center;
+  text-align: center;
+  font-weight: 900;
+  color: ${palette.mainRed};
+  font-size: 18px;
+  line-height: 40px;
+  word-break: keep-all;
 //   white-space:pre;
 `
 
@@ -43,7 +54,7 @@ const SimpleImageContainer = styled.div`
     flex-direction: column;
     align-items: center;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 70px;
   padding: 0 30px;
 `;
 
@@ -93,6 +104,10 @@ const Divider = styled.div`
   border-bottom: 0.1px solid rgba(138, 138, 138, 0.5);
   margin-bottom: 30px;
 `;
+
+const textContainer = styled.div`
+    font-size: 20px;
+`
 
 let beClicked = false;
 let selected_name = 'false';
@@ -155,7 +170,9 @@ class YesNoDraw extends React.Component<Props> {
         )}
         <FullHeightFade>
           <Button theme="white" big onClick={moveHref}>
-            {name}
+              <SimpleText2>
+                {name}
+              </SimpleText2>
           </Button>
         </FullHeightFade>
       </div>
