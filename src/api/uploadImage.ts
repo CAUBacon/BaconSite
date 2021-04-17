@@ -24,7 +24,6 @@ export async function shopImageUpload(shopId: string, files: File[]) {
     },
     withCredentials: true,
   });
-  console.log(response.data);
   return response.data;
 }
 
@@ -47,6 +46,5 @@ export async function menuImageUpload(shopId: string, files: (File | Blob)[]) {
     },
     withCredentials: true,
   });
-  console.log(response.data);
   return response.data;
 }

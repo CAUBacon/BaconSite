@@ -458,7 +458,7 @@ function DetailPage({ match, history, location }: DetailPageProps) {
   // const [imageSizeToBigShow, setImageSizeToBigShow] = useState(false);
   // const [imageCountToBigShow, setImageCountToBigShow] = useState(false);
 
-  
+
 
   const simpleDialogAlert = useCallback(
     (message: string) => {
@@ -482,8 +482,8 @@ function DetailPage({ match, history, location }: DetailPageProps) {
 
   useEffect(() => {
     // const templateMaker = () => {
-      
-      
+
+
   // }
 
   // templateMaker();
@@ -494,18 +494,16 @@ function DetailPage({ match, history, location }: DetailPageProps) {
       document.body.appendChild(script)
       if (!checkReviewLoading) return;
       if (checkReview.loading) return;
-      console.log('check response', checkReview.data);
       if (checkReview.data) {
         history.push(`comment/${(match.params as any).shopId}`);
       } else {
-        console.log('오늘 댓글 더 못달아요ㅎㅋ');
       }
       setCheckReviewLoading(false);
       return () => {
         document.body.removeChild(script)
       }
 
-    
+
   }, [checkReview, history, match.params, checkReviewLoading]);
 
   const onImageUploadButtonClick = () => {
@@ -711,18 +709,15 @@ function DetailPage({ match, history, location }: DetailPageProps) {
   }, [onShopRequest, onReviewRequest]);
 
   ///////
-  
+
 
 
   //////
 
   useEffect(() => {
     if (shop.data && shop.data.address) {
-      console.log("여기는 출력 하는거니")
       const jskeyvalue = `${process.env.REACT_APP_KAKAO_JAVASCRIPT_API_KEY}`
-      console.log(jskeyvalue)
       setJsKey(jskeyvalue)
-      console.log(shop.data)
       if (shop.data.latitude && shop.data.longitude) return;
       getLocation(shop.data.address);
     }
@@ -752,9 +747,6 @@ function DetailPage({ match, history, location }: DetailPageProps) {
 
   useEffect(() => {
     if(shop.data){
-      console.log("여기!!")
-      console.log(shop.data)
-      console.log(shop.data.address.length)
 
       let menus_list: string = ""
 
@@ -896,7 +888,7 @@ function DetailPage({ match, history, location }: DetailPageProps) {
           <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
         </Helmet>
         <KakaoShareButton /> */}
-        
+
       <ShopActionContainer>
         {likeOffset === 0 ? (
           <ShopAction onClick={onLikeButton}>

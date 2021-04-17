@@ -218,7 +218,7 @@ const mbtiResultReport = [
             '개그 욕심이 많고 관심받는 걸 좋아해서 누군가 자신 때문에 폭소하고 관심을 준다면, 그날 너무 기뻐서 잠도 제대로 못 자요.',
             '순발력이 뛰어나고 많은 사실들을 쉽게 기억하며, 예술적인 멋과 판단력을 가지고 있어요.',
             '타고난 문제 해결사이면서 동시에 타고난 말썽꾸러기에요. 문제를 해결도 하고 유발도 해요.',
-            '자신의 개성에 따라 행동하며 겁이 없고 위험천만한 행동을 상대적으로 자주 하는 경향이 있어요. 미재보단 지금 이 순간을 소중히 여겨요.',],
+            '자신의 개성에 따라 행동하며 겁이 없고 위험천만한 행동을 상대적으로 자주 하는 경향이 있어요. 미래보단 지금 이 순간을 소중히 여겨요.',],
     badpartner: ['infj'],
     goodparter: ['infp'],
     food: '꼬불꼬불 파스타', // 꼬불꼬불 파스타?? 멋들어진 스테이크??
@@ -447,6 +447,8 @@ const PartnerContainer = styled.button`
   margin-top: 20px;
   margin-bottom: 30px;
   border-radius: 10px;
+  border: none;
+  outline: none;
 `
 
 const PartnerCategory = styled.div`
@@ -518,6 +520,8 @@ const FoodingContainer = styled.button`
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 10px;
+  outline: none;
+  border: none;
 `
 
 const InstaContainer = styled.button`
@@ -537,6 +541,8 @@ const InstaContainer = styled.button`
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 10px;
+  outline: none;
+  border: none;
 `
 
 const NoResultComment = styled.h1`
@@ -743,9 +749,8 @@ function TestResultPage({ location }: RouteComponentProps) {
         else if(option[1] == "dc"){tempresult="f"}
         else if(option[1] == "fv"){tempresult="j"}
         resultMBTI = resultMBTI + tempresult;
-      } 
+      }
     });
-    console.log(resultMBTI)
     setResultMBTI(resultMBTI)
 
     var searchMenu = ''
@@ -784,11 +789,11 @@ function TestResultPage({ location }: RouteComponentProps) {
 
     let isDetail = false;
     let options: getShopsInterface = {};
-    
+
     options = {
       ...options,
       ['name']: searchMenu,
-    } 
+    }
     setIsSearch(true);
     onGetShops(options, isDetail);
 
@@ -807,7 +812,6 @@ function TestResultPage({ location }: RouteComponentProps) {
   }
 
   function moveToPartner(mbti: string) {
-    console.log(mbti)
     var tmpre1 = ""
     var tmpre2 = ""
     var tmpre3 = ""

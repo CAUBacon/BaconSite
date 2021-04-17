@@ -179,8 +179,6 @@ function DetailImage({ match, mode, history }: DetailImageProps) {
     reportDispatch((mode === 'shop' ? shop.data?.shopImage : shop.data?.menuImage)[selectedIndex]._id);
   }, [reportDispatch, selectedIndex, mode, shop.data, user]);
 
-  console.log(user);
-
   useEffect(() => {
     if (report.data?.message === 'success') {
       setShowDone(true);
