@@ -518,6 +518,8 @@ const FoodingContainer = styled.button`
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 10px;
+  outline: none;
+  border: none;
 `
 
 const InstaContainer = styled.button`
@@ -537,6 +539,8 @@ const InstaContainer = styled.button`
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 10px;
+  outline: none;
+  border: none;
 `
 
 const NoResultComment = styled.h1`
