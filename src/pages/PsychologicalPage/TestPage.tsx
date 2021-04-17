@@ -242,7 +242,6 @@ class TestPage extends React.Component<Props, State> {
   componentDidMount() {
     let imageList = [country, flex, instagram, location, friends];
     imageList.forEach((image) => {
-      console.log('load');
       new Image().src = image;
     });
   }

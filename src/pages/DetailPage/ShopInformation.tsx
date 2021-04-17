@@ -39,7 +39,6 @@ function shopCategoryToString(shopCategory: ShopCategory) {
 }
 
 function shopAndFoodCategoryToString(shopCategory: ShopCategory, foodCategory: FoodCategory[]): string {
-  console.log(foodCategory);
   if (foodCategory.length > 0) {
     let temp = [...foodCategory];
     let last = temp.pop()!;

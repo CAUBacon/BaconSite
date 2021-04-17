@@ -115,7 +115,6 @@ class YesNoDraw extends React.Component<Props> {
   };
 
   handleClick(id: number) {
-    // console.log(id)
     this.props.onChange(id);
   }
 

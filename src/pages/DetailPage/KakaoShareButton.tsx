@@ -12,17 +12,14 @@ const KakaoShareButton = () => {
   }, [])
   const createKakaoButton = () => {
     // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
-    console.log("여긴와?")
     if (window.kakao) {
       const kakao = window.kakao
-      console.log("얜 호출되긴 하는거야?")
 
       // 중복 initialization 방지
       if (!kakao.isInitialized()) {
         // 두번째 step 에서 가져온 javascript key 를 이용하여 initialize
         // kakao.init(process.env.REACT_APP_KAKAO_KEY)
         kakao.init(process.env.REACT_APP_KAKAO_JAVASCRIPT_API_KEY)
-        console.log("얜 호출되긴 하는거야?")
       }
       kakao.Link.createDefaultButton({
         // Render 부분 id=kakao-link-btn 을 찾아 그부분에 렌더링을 합니다

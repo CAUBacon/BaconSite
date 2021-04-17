@@ -101,7 +101,6 @@ function SearchPage({ history }: RouteComponentProps) {
           const response = await axios.get<ResponseInterface>(apiLink() + `/shop/search/${keyword}`, {
             withCredentials: true,
           });
-          console.log(response.data);
           let rawData: DataInterface[] = [];
           response.data.shops.forEach((shop) => {
             let tempText: TextInterface[] = [];
@@ -180,7 +179,6 @@ function SearchPage({ history }: RouteComponentProps) {
 
   const onKeywordClick = useCallback(
     (keyword: string) => {
-      console.log(keyword);
       setValue('');
       setData([]);
       history.push({

@@ -447,6 +447,8 @@ const PartnerContainer = styled.button`
   margin-top: 20px;
   margin-bottom: 30px;
   border-radius: 10px;
+  border: none;
+  outline: none;
 `
 
 const PartnerCategory = styled.div`
@@ -518,6 +520,8 @@ const FoodingContainer = styled.button`
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 10px;
+  outline: none;
+  border: none;
 `
 
 const InstaContainer = styled.button`
@@ -537,6 +541,8 @@ const InstaContainer = styled.button`
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 10px;
+  outline: none;
+  border: none;
 `
 
 const NoResultComment = styled.h1`
@@ -743,9 +749,8 @@ function TestResultPage({ location }: RouteComponentProps) {
         else if(option[1] == "dc"){tempresult="f"}
         else if(option[1] == "fv"){tempresult="j"}
         resultMBTI = resultMBTI + tempresult;
-      } 
+      }
     });
-    console.log(resultMBTI)
     setResultMBTI(resultMBTI)
 
     var searchMenu = ''
@@ -784,11 +789,11 @@ function TestResultPage({ location }: RouteComponentProps) {
 
     let isDetail = false;
     let options: getShopsInterface = {};
-    
+
     options = {
       ...options,
       ['name']: searchMenu,
-    } 
+    }
     setIsSearch(true);
     onGetShops(options, isDetail);
 
@@ -807,7 +812,6 @@ function TestResultPage({ location }: RouteComponentProps) {
   }
 
   function moveToPartner(mbti: string) {
-    console.log(mbti)
     var tmpre1 = ""
     var tmpre2 = ""
     var tmpre3 = ""
