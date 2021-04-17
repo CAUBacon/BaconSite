@@ -434,7 +434,18 @@ function HomePage({ history, match }: RouteComponentProps) {
             <div className="title">FOODING’s PICK!</div>
             <div className="posts">
               {posts.data ? (
-                posts.data.map((post) => (
+                  <a href={posts.data[0].link} key={posts.data[0].image}>
+                    <RoundContainer noBlur theme="image" imageLink={posts.data[0].image} key={`${posts.data[0].registerDate}`}>
+                      <span>{posts.data[0].title}</span>
+                    </RoundContainer>
+                  </a>
+              ) : (
+                <div className="loaderContainer">
+                  <div className="loader loader-black loader-1"></div>
+                </div>
+              )}
+              {posts.data ? (
+                posts.data.slice(1).map((post) => (
                   <a href={post.link} key={post.image}>
                     <RoundContainer theme="image" imageLink={post.image} key={`${post.registerDate}`}>
                       <span>{post.title}</span>
