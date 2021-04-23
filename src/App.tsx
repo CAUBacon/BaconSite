@@ -3,10 +3,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Container from './components/layout/Container';
 import Header from './components/layout/Header';
-import Loader from './components/common/Loader';
 import Title from 'lib/meta';
-import ReactGA from 'react-ga';
-import { createBrowserHistory } from 'history';
 import SimpleLoader from 'components/common/SimpleLoader';
 
 const ResultPage = React.lazy(() => import(/* webpackChunkName: "result", webpackPrefetch: true */ './pages/ResultPage/ResultPage'));
@@ -23,14 +20,6 @@ const TestStartRouter = React.lazy(() => import(/* webpackChunkName: "filter", w
 const MyPageRouter = React.lazy(() => import(/* webpackChunkName: "myPage", webpackPrefetch: true */ './pages/MyPage/MyPage'));
 const Page404 = React.lazy(() => import(/* webpackChunkName: "404", webpackPrefetch: true */ './pages/Page404'));
 const SearchPage = React.lazy(() => import(/* webpackChunkName: "SearchPage", webpackPrefetch: true */ './pages/SearchPage/SearchPage'));
-
-const history = createBrowserHistory();
-
-// Initialize google analytics page view tracking
-history.listen((location) => {
-  ReactGA.set({ page: location.pathname }); // Update the user's current page
-  ReactGA.pageview(location.pathname); // Record a pageview for the given page
-});
 
 function App() {
   return (
